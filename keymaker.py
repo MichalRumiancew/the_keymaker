@@ -1,4 +1,18 @@
+import string
+
+ALPHABET = string.ascii_lowercase
+
+
 def shift_characters(word, shift):
+    new_word = ""
+    for char in word:
+        char_index = ALPHABET.index(char)
+        new_index = (char_index + shift) % len(ALPHABET)
+        new_word += ALPHABET[new_index]
+    return new_word
+
+
+
     """
     >>> shift_characters('abby', 5)
     'fggd'
@@ -85,8 +99,8 @@ def hash_it(word):
 
 
 if __name__ == '__main__':
-    word = input("Enter word to shift ").lower()
-    shift = int(input("Please select the shift"))
+    word = input("Enter word to shift: ").lower()
+    shift = int(input("Please select the shift: "))
     result = shift_characters(word, shift)
     print(result)
   
