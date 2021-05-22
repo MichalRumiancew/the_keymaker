@@ -85,5 +85,9 @@ def hash_it(word):
 
 
 if __name__ == '__main__':
-    name = input("Enter your name! ").lower()
-    print(f'Your key: {hash_it(name)}')
+    word = input("Enter word to shift ").lower()
+    shift = int(input("Please select the shift"))
+    result = shift_characters(word, shift)
+    print(result)
+  
+    # print(f'Your key: {hash_it(name)}')
