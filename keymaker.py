@@ -91,11 +91,15 @@ def rotate_right(word, n):
 
 
 def get_square_index_chars(word):
+    
+
+
     """
     >>> get_square_index_chars('abcdefghijklm')
     'abej'
     """
-    pass
+   
+   
 
 
 def remove_odd_blocks(word, block_length):
