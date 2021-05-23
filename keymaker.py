@@ -36,6 +36,15 @@ def pad_up_to(word, shift, n):
 
 
 def abc_mirror(word):
+    new_word = ""
+    reversed_alphabet = ALPHABET[::-1] # odwrócenie listy
+    for letter in word:
+        letter_index = ALPHABET.index(letter)
+        new_letter = reversed_alphabet[letter_index]
+        new_word += new_letter
+    return new_word
+      
+
     """
     >>> abc_mirror('abcd')
     'zyxw'
@@ -44,6 +53,9 @@ def abc_mirror(word):
 
 
 def create_matrix(word1, word2):
+
+
+
     """
     >>> create_matrix('mamas', 'papas')
     ['bpbph', 'mamas', 'bpbph', 'mamas', 'esesk']
@@ -107,9 +119,10 @@ def hash_it(word):
 
 if __name__ == '__main__':
     word = input("Enter word to shift: ").lower()
-    shift = int(input("Please select the shift: "))
-    n = int(input("please provide a number of characters: "))
-    result = pad_up_to(word, shift, n)
+    # shift = int(input("Please select the shift: "))
+    # n = int(input("please provide a number of characters: "))
+    # result = pad_up_to(word, shift, n)
+    result = abc_mirror(word)
     print(result)
   
     # print(f'Your key: {hash_it(name)}')
