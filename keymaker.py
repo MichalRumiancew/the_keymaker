@@ -11,21 +11,28 @@ def shift_characters(word, shift):
         new_word += ALPHABET[new_index]
     return new_word
 
-
-
     """
     >>> shift_characters('abby', 5)
     'fggd'
     """
-    pass
+    
 
 
 def pad_up_to(word, shift, n):
+    new_word = ""
+    new_word += word
+    while len(new_word) < n:
+        next_word = shift_characters(word, shift)
+        new_word += next_word
+        word = next_word
+    return new_word[:n]
+
+
     """
     >>> pad_up_to('abb', 5, 11)
     'abbfggkllpq'
     """
-    pass
+    
 
 
 def abc_mirror(word):
@@ -101,7 +108,8 @@ def hash_it(word):
 if __name__ == '__main__':
     word = input("Enter word to shift: ").lower()
     shift = int(input("Please select the shift: "))
-    result = shift_characters(word, shift)
+    n = int(input("please provide a number of characters: "))
+    result = pad_up_to(word, shift, n)
     print(result)
   
     # print(f'Your key: {hash_it(name)}')
