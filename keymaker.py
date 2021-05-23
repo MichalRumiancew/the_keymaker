@@ -64,9 +64,13 @@ def zig_zag_concatenate(matrix):
     new_word = ""
 
     for index in range(len(matrix[0])):
+        temp_word = ""
         for word in matrix:
-            new_word += word[index]
-
+            temp_word += word[index]
+        if index % 2 == 1:
+            new_word += temp_word[::-1] #odwrócenie słowa
+        else:
+            new_word += temp_word
     return new_word
 
     """
@@ -76,6 +80,12 @@ def zig_zag_concatenate(matrix):
 
 
 def rotate_right(word, n):
+    new_word = ""
+    
+
+
+
+
     """
     >>> rotate_right('abcdefgh', 3)
     'fghabcde'
@@ -124,7 +134,7 @@ def hash_it(word):
 if __name__ == '__main__':
     # word = input("Enter word to shift: ").lower()
     # shift = int(input("Please select the shift: "))
-    # n = int(input("please provide a number of characters: "))
+    n = int(input("please provide a number of characters: "))
     # result = pad_up_to(word, shift, n)
     # result = abc_mirror(word)
     # word1 = input("Please enter word 1: ").lower()
@@ -133,9 +143,10 @@ if __name__ == '__main__':
     # result = create_matrix(word1, word2)
     # print(result)
 
-    name = input("Enter your name: ").lower()
-    matrix = create_matrix(name, name)
-    result = zig_zag_concatenate(matrix)
+    # name = input("Enter your name: ").lower()
+    # matrix = create_matrix(name, name)
+    # result = zig_zag_concatenate(matrix)
+    result = rotate_right(word, n)
     print(result)
 
     # print(f'Your key: {hash_it(name)}')
