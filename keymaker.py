@@ -127,6 +127,14 @@ def remove_odd_blocks(word, block_length):
 
 
 def reduce_to_fixed(word, n):
+    new_word = word[:n]
+    rotated_word = rotate_right(new_word, -n//3)
+    final_word = rotate_word[::-1]
+
+    return final_word
+
+
+
     """
     >>> reduce_to_fixed('abcdefghijklm', 6)
     'bafedc'
