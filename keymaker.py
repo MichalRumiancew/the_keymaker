@@ -91,19 +91,35 @@ def rotate_right(word, n):
 
 
 def get_square_index_chars(word):
-    
 
+    new_word = ""
+    n = 0
+    while n**2 <= len(word):
+        new_word += word[n**2]
+        n += 1
+    return new_word
 
     """
     >>> get_square_index_chars('abcdefghijklm')
     'abej'
     """
-   
-   
 
 
 def remove_odd_blocks(word, block_length):
-    """
+    new_word = ""
+
+    word_as_list = list(word)
+    sliced_blocks = [word_as_list[i:i + block_length]
+                     for i in range(0, len(word_as_list), block_length)]
+
+    for index, block in enumerate(sliced_blocks):
+
+        if index % 2 == 0:
+            new_word += "".join(block)
+
+    return new_word
+
+    """    
     >>> remove_odd_blocks('abcdefghijklm', 3)
     'abcghim'
     """
@@ -134,8 +150,8 @@ def hash_it(word):
 
 if __name__ == '__main__':
     word = input("Enter word to shift: ").lower()
-    # shift = int(input("Please select the shift: "))
-    n = int(input("please provide a number of characters: "))
+    shift = int(input("Please select the shift: "))
+    # n = int(input("please provide a number of characters: "))
     # result = pad_up_to(word, shift, n)
     # result = abc_mirror(word)
     # word1 = input("Please enter word 1: ").lower()
@@ -145,7 +161,8 @@ if __name__ == '__main__':
     # name = input("Enter your name: ").lower()
     # matrix = create_matrix(name, name)
     # result = zig_zag_concatenate(matrix)
-    result = rotate_right(word, n)
+    # result = rotate_right(word, n)
+    result = remove_odd_blocks(word, shift)
     print(result)
 
     # print(f'Your key: {hash_it(name)}')
